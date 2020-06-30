@@ -3,9 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{utilsService?.app?.label}}</ion-title>
+    <ion-title>{{utilsService?.app?.appName}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="openApp(utilsService.app.package)">
+      <ion-button (click)="openApp(utilsService.app.packageName)">
         <ion-icon slot="icon-only" name="play" ></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -14,23 +14,25 @@
 <ion-content>
   <ion-item>
     <ion-thumbnail>
-      <img [src]="utilsService?.app?.packageIcon" alt="">
+      <img [src]="utilsService?.app?.appIcon" alt="">
     </ion-thumbnail>
     <ion-label class="ion-margin-start">
       <h2>
-        {{utilsService?.app?.label}}
+        {{utilsService?.app?.appName}}
       </h2>
       <p>
-        {{utilsService?.app?.package}}
+        {{utilsService?.app?.packageName}}
       </p>
     </ion-label>
   </ion-item>
   <ion-item>
     <ion-label>
-      <h1>Info 1</h1>
-      <p>data</p>
-      <h1>Info 2</h1>
-      <p>data</p>
+      <h1>Version</h1>
+      <p>{{utilsService?.app?.versionName}}</p>
+      <br />
+      <br />
+      <h1>Data Directory</h1>
+      <p>{{utilsService?.app?.dataDir}}</p>
     </ion-label>
   </ion-item>
 </ion-content>

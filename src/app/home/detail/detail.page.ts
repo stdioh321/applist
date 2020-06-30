@@ -25,13 +25,13 @@ export class DetailPage implements OnInit {
 
   openApp(pkg = "") {
     console.log(pkg);
-    
-    if (window['plugins'] && window['plugins']['launcher'])
-      window['plugins']['launcher'].launch({ packageName: pkg }, () => {
+
+    if (window['DeviceApps'])
+      window['DeviceApps'].openApp(() => {
         console.log('Success');
       }, () => {
         console.log('Error');
-      });
+      }, pkg);
 
   }
 }

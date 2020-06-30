@@ -28,6 +28,7 @@
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-applist": "^0.1.12",
     "cordova-plugin-applist2": "^1.0.2-dev",
+    "cordova-plugin-device-apps": "0.0.2",
     "cordova-plugin-get-app-info": "^1.0.1",
     "cordova-plugin-intent-list": "0.0.7",
     "cordova-plugin-packagemanager": "^0.1.7",
@@ -80,7 +81,8 @@
       "cordova-plugin-get-app-info": {},
       "cordova-plugin-app-version": {},
       "cordova-plugin-intent-list": {},
-      "cordova-plugin-app-launcher": {}
+      "cordova-plugin-app-launcher": {},
+      "cordova-plugin-device-apps": {}
     },
     "platforms": [
       "android"

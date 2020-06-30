@@ -33,11 +33,11 @@
       [ngClass]="{'ion-hide':app?.show === false}" (click)="goDetail(app)">
 
       <ion-avatar item-start >
-        <img [src]="app.packageIcon" [alt]="app?.label">
+        <img [src]="app.appIcon" [alt]="app?.appName">
       </ion-avatar>
       <ion-label class="ion-margin-start">
-        <h2>{{app?.label}}</h2>
-        <p>{{app?.package}}</p>
+        <h2>{{app?.appName}}</h2>
+        <p>{{app?.packageName}}</p>
       </ion-label>
 
     </ion-item>
