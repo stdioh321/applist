@@ -24,6 +24,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "cordova-android": "^8.1.0",
+    "cordova-plugin-app-launcher": "git+https://github.com/nchutchind/cordova-plugin-app-launcher.git",
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-applist": "^0.1.12",
     "cordova-plugin-applist2": "^1.0.2-dev",
@@ -78,7 +79,8 @@
       "cordova-plugin-packagemanager": {},
       "cordova-plugin-get-app-info": {},
       "cordova-plugin-app-version": {},
-      "cordova-plugin-intent-list": {}
+      "cordova-plugin-intent-list": {},
+      "cordova-plugin-app-launcher": {}
     },
     "platforms": [
       "android"

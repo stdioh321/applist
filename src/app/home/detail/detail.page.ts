@@ -23,4 +23,15 @@ export class DetailPage implements OnInit {
   ngOnInit() {
   }
 
+  openApp(pkg = "") {
+    console.log(pkg);
+    
+    if (window['plugins'] && window['plugins']['launcher'])
+      window['plugins']['launcher'].launch({ packageName: pkg }, () => {
+        console.log('Success');
+      }, () => {
+        console.log('Error');
+      });
+
+  }
 }

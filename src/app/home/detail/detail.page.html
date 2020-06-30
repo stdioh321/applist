@@ -4,9 +4,13 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{utilsService?.app?.label}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openApp(utilsService.app.package)">
+        <ion-icon slot="icon-only" name="play" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-item>
     <ion-thumbnail>
