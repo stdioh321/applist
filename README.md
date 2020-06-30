@@ -21,7 +21,7 @@ $ ionic serve
 ```
 Open your browser at: http://localhost:8100
 
-[!pic1](./screenshots/output_browser.png)
+![pic1](./screenshots/output_browser.png)
 
 
 
