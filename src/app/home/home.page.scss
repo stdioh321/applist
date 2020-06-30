@@ -1,27 +1,35 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+::ng-deep .no-click {
+    //  pointer-events: none; //This makes it not clickable
+    // border: solid red 2px !important;
+    --background-activated: transparent !important;
+    --ripple-color: transparent;
+    --background-hover: transparent;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+// #container {
+//   text-align: center;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
-  color: #8c8c8c;
+// #container strong {
+//   font-size: 20px;
+//   line-height: 26px;
+// }
 
-  margin: 0;
-}
+// #container p {
+//   font-size: 16px;
+//   line-height: 22px;
 
-#container a {
-  text-decoration: none;
-}
+//   color: #8c8c8c;
+
+//   margin: 0;
+// }
+
+// #container a {
+//   text-decoration: none;
+// }

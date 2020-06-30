@@ -1,20 +1,74 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="false">
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> -->
     <ion-title>
-      Blank
+      Apps List
     </ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-icon name="search-outline" slot="icon-only"></ion-icon>
+    </ion-buttons> -->
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar autocomplete="on" (ionInput)="onSearch($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content>
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <div id="container">
+  <!-- <div id="container">
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </div> -->
+  <!-- <h3>{{title}}</h3> -->
+
+  <ion-list lines="full">
+    <ion-item class="no-click" detail="true" *ngFor="let app of applist" mode="md"
+      [ngClass]="{'ion-hide':app?.show === false}" (click)="goDetail(app)">
+
+      <ion-avatar item-start >
+        <img [src]="app.packageIcon" [alt]="app?.label">
+      </ion-avatar>
+      <ion-label class="ion-margin-start">
+        <h2>{{app?.label}}</h2>
+        <p>{{app?.package}}</p>
+      </ion-label>
+
+    </ion-item>
+    <ng-container *ngIf="applist === null">
+      <ion-item>
+        <ion-label>
+          <h2>Loading</h2>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="!listHasSearch()">
+      <ion-item>
+        <ion-label>
+          <h2>Nothing found</h2>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="applist === undefined">
+      <ion-item>
+        <ion-label>
+          <h2>Not possible to load the apps</h2>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+  <!-- <ion-list>
+    <ion-list-header>
+      Action
+    </ion-list-header>
+    <ion-item>Terminator II</ion-item>
+    <ion-item>The Empire Strikes Back</ion-item>
+    <ion-item>Blade Runner</ion-item>
+  </ion-list> -->
 </ion-content>

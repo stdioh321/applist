@@ -1,5 +1,7 @@
 {
   "name": "applist",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
