@@ -15,12 +15,17 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
+    // let status bar overlay webview
+    this.statusBar.overlaysWebView(false);
+
+    // set status bar to white
+    // this.statusBar.backgroundColorByHexString('#ffffff');
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      // this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
