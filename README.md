@@ -33,6 +33,8 @@ $ ionic cordova build android
 A .apk file will be generate at the path: 
 ./platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
+![pic2](./screenshots/output_android_01.png)
+![pic3](./screenshots/output_android_02.png)
 
 # References
 * https://www.npmjs.com/package/cordova-plugin-intent-list
