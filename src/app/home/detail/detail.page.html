@@ -6,7 +6,7 @@
     <ion-title>{{utilsService?.app?.appName}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openApp(utilsService.app.packageName)">
-        <ion-icon slot="icon-only" name="play" ></ion-icon>
+        <ion-icon slot="icon-only" name="play"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -31,8 +31,18 @@
       <p>{{utilsService?.app?.versionName}}</p>
       <br />
       <br />
+      <h1>Size</h1>
+      <p>{{appSize}}</p>
+      <br />
+      <br />
       <h1>Data Directory</h1>
       <p>{{utilsService?.app?.dataDir}}</p>
+      <br />
+      <br />
+      <h1>Unity Version</h1>
+      <p>
+        {{unityVersion}}
+      </p>
     </ion-label>
   </ion-item>
 </ion-content>
