@@ -12,6 +12,7 @@ export class DetailPage implements OnInit {
   public package: any;
   public unityVersion = "Loading...";
   public appSize = "Loading...";
+  public technology = null;
 
   constructor(
     public aRoute: ActivatedRoute,
@@ -65,7 +66,7 @@ export class DetailPage implements OnInit {
         }
         let apk = res.output.match(/\:.*apk/)[0].substr(1);
         // let apk = res.output.split(":")[1].trim();
-              
+
 
         window['resolveLocalFileSystemURL']("file://" + apk,
           (f) => {
@@ -137,6 +138,8 @@ export class DetailPage implements OnInit {
                             { target: window['cordova'].file.externalDataDirectory + "base", name: "base" },
                             (res) => {
                               console.log('success, file unziped');
+
+
                               window['resolveLocalFileSystemURL'](window['cordova'].file.externalDataDirectory + 'base/assets/bin/Data/Resources/unity_builtin_extra',
                                 (file: any) => {
                                   file['file']((f) => {
@@ -152,6 +155,40 @@ export class DetailPage implements OnInit {
                                       this.ngZone.run(() => {
                                         this.unityVersion = version ? version : "No version found";
                                       });
+                                      window['resolveLocalFileSystemURL'](window['cordova'].file.externalDataDirectory + 'base/META-INF/MANIFEST.MF',
+                                        (f: any) => {
+                                          f.file((file) => {
+                                            let fReader = new FileReader();
+                                            fReader.onerror = () => {
+                                              this.technology = "It was not possible to identify the technology";
+                                            };
+                                            fReader.onload = (result) => {
+                                              var resultContent = result.target.result;
+                                              console.log('MANIFEST.MF file found.');
+
+
+                                              this.ngZone.run(() => {
+                                                resultContent = resultContent + "";
+                                                if (resultContent.match(/libil2cpp/i))
+                                                  this.technology = "IL2CPP";
+                                                else if (resultContent.match(/libilcpp/i))
+                                                  this.technology = "ILCPP";
+                                                else if (resultContent.match(/libmono/i))
+                                                  this.technology = "MONO";
+                                                else
+                                                  this.technology = "It was not possible to identify the technology";
+                                              });
+
+                                            };
+                                            fReader.readAsText(file);
+                                          }, err => {
+                                            this.technology = "It was not possible to identify the technology";
+                                          });
+                                        },
+                                        (err) => {
+                                          console.log(err);
+                                          this.technology = "It was not possible to identify the technology";
+                                        });
                                     };
                                     fr.readAsText(f);
                                   }, err => {

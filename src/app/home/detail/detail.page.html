@@ -43,6 +43,14 @@
       <p>
         {{unityVersion}}
       </p>
+      <ng-container *ngIf="technology">
+        <br />
+        <br />
+        <h1>Used Technology</h1>
+        <p>
+          {{technology}}
+        </p>
+      </ng-container>
     </ion-label>
   </ion-item>
 </ion-content>
