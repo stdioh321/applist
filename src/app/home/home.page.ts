@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
   ];
   public applist: any = [];
   public title = "";
-  // public platform: any;
+
   constructor(
     public platform: Platform,
     public ngZone: NgZone,
@@ -45,13 +45,14 @@ export class HomePage implements OnInit {
   }
   async ngOnInit() {
     // console.log(window);
-    console.log(this.utilsService.getApp());
+    // console.log(this.utilsService.getApp());
 
     this.applist = this._applist.slice();
     // console.log(this._applist.slice());
 
     this.loading = await this.loadingController.create({ message: "Loading" });
-    await this.startLoading();
+    this.loading.present();
+
     this.getAppList();
 
   }
@@ -63,8 +64,7 @@ export class HomePage implements OnInit {
   }
   getAppList() {
     this.platform.ready().then((d) => {
-      console.log(window.navigator);
-      // this.title = "Done";
+      
       if (window.DeviceApps) {
         window.DeviceApps.getInstalledApplications((apps) => {
           this.ngZone.run(() => {
@@ -93,7 +93,7 @@ export class HomePage implements OnInit {
       } else {
         this.dismissLoading();
       }
-      
+
     });
   }
 
@@ -125,7 +125,6 @@ export class HomePage implements OnInit {
   goDetail(app = null) {
     if (!app) return;
     this.utilsService.app = app;
-    // console.log(app);
     this.router.navigate(['detail/' + app['packageName']], { relativeTo: this.aRoute });
   }
 }
